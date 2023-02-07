@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export default function Header() {
+export default function Header({setSearchQuery}) {
     const [user, setUser] = useState({})
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <div className="header">
             <h1>DogFood</h1>
-            <input type="search" name="search" id="search" className='search'/>
+            <input type="search" name="search" id="search" className='search' onChange={e => setSearchQuery(e.target.value)}/>
             <div className='userInfo'>
               <img src={user.avatar} alt="" className='avatar'/>
               <p>{user.name}</p>

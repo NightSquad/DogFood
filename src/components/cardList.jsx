@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import Card from './card/card';
 
-export default function CardList() {
+export default function CardList({searchQuery}) {
     const [goods, setGoods] = useState()
 
     useEffect(() => {
@@ -16,11 +16,14 @@ export default function CardList() {
     });
     
     }, [])
-    console.log(goods)
+    
+    const SearchedGoods = useMemo(() => {
+        if (goods) return goods.products.filter(product => product.name.includes(searchQuery))
+    }, [searchQuery, goods])
 
     return (
     <div className='cardList'>
-        {goods ? goods.products.map(e => <Card item={e}></Card>) : "Loading"}
+        {SearchedGoods ? SearchedGoods.map(e => <Card key={e._id} item={e}></Card>) : "Loading"}
     </div>
 )
 }
