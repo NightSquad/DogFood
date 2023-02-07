@@ -1,0 +1,29 @@
+.card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.image {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.name {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.like {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.like:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
