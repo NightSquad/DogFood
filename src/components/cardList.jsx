@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import Card from './card/card';
 
-export default function CardList({searchQuery}) {
+export default function CardList({searchQuery, user}) {
     const [goods, setGoods] = useState()
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export default function CardList({searchQuery}) {
 
     return (
     <div className='cardList'>
-        {SearchedGoods ? SearchedGoods.map(e => <Card key={e._id} item={e}></Card>) : "Loading"}
+        {SearchedGoods ? SearchedGoods.map(e => <Card key={e._id} item={e} user={user}></Card>) : "Loading"}
     </div>
 )
 }

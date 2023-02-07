@@ -1,19 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-export default function Header({setSearchQuery}) {
-    const [user, setUser] = useState({})
-
-    useEffect(() => {
-        fetch('https://api.react-learning.ru/v2/:groupId/users/me', {
-    headers: {
-        authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
-    }
-    })
-    .then(res => res.json())
-    .then((result) => {
-        setUser(result)
-    });
-    }, [])
+export default function Header({setSearchQuery, user}) {
 
   return (
     <div className="header">
