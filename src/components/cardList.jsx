@@ -21,9 +21,11 @@ export default function CardList({searchQuery, user}) {
         if (goods) return goods.products.filter(product => product.name.includes(searchQuery))
     }, [searchQuery, goods])
 
+    console.log(SearchedGoods)
+
     return (
     <div className='cardList'>
-        {SearchedGoods ? SearchedGoods.map(e => <Card key={e._id} item={e} user={user}></Card>) : "Loading"}
+        {SearchedGoods ? SearchedGoods.length > 0 ? SearchedGoods.map(e => <Card key={e._id} item={e} user={user}></Card>) : "Товары по указанному поисковому запросу не найдены" : "Loading"}
     </div>
 )
 }
